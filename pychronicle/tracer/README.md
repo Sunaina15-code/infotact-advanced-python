@@ -120,18 +120,29 @@ When tracing is enabled, Python follows this process:
 ```python
 import sys
 
+
 def tracer(frame, event, arg):
-    print(f"{event}: {frame.f_code.co_name} (Line {frame.f_lineno})")
-    return tracer
+    """Print every trace event: call, line, return, exception."""
+    func_name = frame.f_code.co_name
+    line_no = frame.f_lineno
+    print(f"{event:10} | {func_name:10} | line {line_no}")
+    return tracer  # must return itself to keep tracing nested calls/lines
 
-sys.settrace(tracer)
 
-def greet():
-    print("Hello World")
+def greet(name):
+    message = f"Hello, {name}!"
+    print(message)
+    return message
 
-greet()
 
-sys.settrace(None)
+def main():
+    sys.settrace(tracer)
+    greet("World")
+    sys.settrace(None)  # stop tracing as soon as you're done
+
+
+if __name__ == "__main__":
+    main()
 ```
 
 ### Expected Output
