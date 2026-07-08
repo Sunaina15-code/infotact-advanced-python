@@ -166,22 +166,23 @@ def tracer(frame, event, arg):
     trace_log.append({
         "event": event,
         "function": frame.f_code.co_name,
-        "line": frame.f_lineno
+        "line": frame.f_lineno,
+        "locals": dict(frame.f_locals),
     })
     return tracer
-
-sys.settrace(tracer)
 
 def add(a, b):
     result = a + b
     return result
 
+sys.settrace(tracer)
 add(5, 7)
-
 sys.settrace(None)
 
+print(f"{'EVENT':<10} {'FUNCTION':<10} {'LINE':<6} LOCALS")
+print("-" * 50)
 for item in trace_log:
-    print(item)
+    print(f"{item['event']:<10} {item['function']:<10} {item['line']:<6} {item['locals']}")
 ```
 
 ### Sample Output
