@@ -33,7 +33,16 @@ The trace function has the following signature:
 
 ```python
 def trace_function(frame, event, arg):
-    return trace_function
+    """
+    A trace function that logs function calls, returns, and lines executed.
+    
+    Args:
+        frame: The current stack frame
+        event: One of 'call', 'line', 'return', 'exception'
+        arg: Event-specific argument
+    
+    Returns:
+        The local trace function to use for this frame (or None to disable tracing there)
 ```
 
 It receives three parameters:
