@@ -32,6 +32,8 @@ Once registered, Python calls the trace function whenever certain execution even
 The trace function has the following signature:
 
 ```python
+import sys
+
 def trace_function(frame, event, arg):
     """
     A trace function that logs function calls, returns, and lines executed.
@@ -43,7 +45,44 @@ def trace_function(frame, event, arg):
     
     Returns:
         The local trace function to use for this frame (or None to disable tracing there)
-```
+    """
+    code = frame.f_code
+    func_name = code.co_name
+    filename = code.co_filename
+    lineno = frame.f_lineno
+
+    if event == 'call':
+        print(f"CALL: {func_name}() in {filename}:{lineno}")
+        # Returning trace_function here means we also trace 'line'/'return' events
+        # inside this frame. Return None if you don't want line-level tracing.
+        return trace_function
+
+    elif event == 'line':
+        print(f"LINE: {func_name}() executing line {lineno}")
+
+    elif event == 'return':
+        print(f"RETURN: {func_name}() -> {arg!r}")
+
+    elif event == 'exception':
+        exc_type, exc_value, exc_tb = arg
+        print(f"EXCEPTION: {func_name}() raised {exc_type.__name__}: {exc_value}")
+
+    # For 'line', 'return', 'exception' the return value is ignored by CPython,
+    # but returning trace_function keeps things consistent if you reuse this
+    # as a local trace function too.
+    return trace_function
+
+
+def example(x):
+    y = x + 1
+    z = y * 2
+    return z
+
+
+if __name__ == '__main__':
+    sys.settrace(trace_function)
+    example(5)
+    sys.settrace(None)  # stop tracing
 
 It receives three parameters:
 
