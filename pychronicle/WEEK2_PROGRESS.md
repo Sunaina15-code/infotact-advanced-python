@@ -1,31 +1,35 @@
 # PyChronicle - Week 2 Progress Report
 
-## Week: 2 (July 12-18, 2025)
+## Week: 2 (July 5-11, 2026)
 
 ## Completed Tasks
 
-### 1. Delta Tracker (Sunaina)
-- Only saves CHANGES not every state
-- Reduces memory usage significantly
-- Tracks old vs new values
+### Sunaina (Team Lead)
+- Delta Tracker - saves only changes
+- Optimized Tracer - combined with delta
+- Timeline UI - connected SQLite to Textual
+- Watch Variables - track specific variables
 
-### 2. Optimized Tracer (Sunaina)
-- Combined sys.settrace with delta tracking
-- Shows memory savings percentage
-- Filters out built-in variables
+### Athrva
+- Advanced Storage - query functions
+- Query Engine - search by value/line
 
-### 3. Timeline UI (Sunaina)
-- Connected SQLite to Textual UI
-- Timeline panel shows all states
-- Code panel shows current state details
+### John
+- Week 2 documentation
+- Progress tracking
 
-### 4. Advanced Storage (Athrva)
-- Query by variable name
-- Query by line number
-- Summary report of all variables
+### Noah
+- Performance testing
+- Benchmarking storage speed
+
+## Week 2 Summary
+- Storage optimized with delta compression
+- UI connected to database
+- Watch Variables feature added
+- Performance benchmarked
 
 ## Next Week (Week 3) Plan
-- Delta Compression optimization
-- Time-scrubbing UI with keyboard controls
-- Performance benchmarking
-- Watch Variables feature
+- Full delta compression (90% memory reduction)
+- Time-scrubbing UI with keyboard navigation
+- CLI packaging started
+- Final polish
