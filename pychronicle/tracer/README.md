@@ -34,17 +34,19 @@ The trace function has the following signature:
 ```python
 import sys
 
+
 def trace_function(frame, event, arg):
     """
     A trace function that logs function calls, returns, and lines executed.
-    
+
     Args:
         frame: The current stack frame
         event: One of 'call', 'line', 'return', 'exception'
         arg: Event-specific argument
-    
+
     Returns:
-        The local trace function to use for this frame (or None to disable tracing there)
+        The local trace function to use for this frame (or None to disable
+        tracing there)
     """
     code = frame.f_code
     func_name = code.co_name
@@ -53,8 +55,6 @@ def trace_function(frame, event, arg):
 
     if event == 'call':
         print(f"CALL: {func_name}() in {filename}:{lineno}")
-        # Returning trace_function here means we also trace 'line'/'return' events
-        # inside this frame. Return None if you don't want line-level tracing.
         return trace_function
 
     elif event == 'line':
@@ -67,9 +67,6 @@ def trace_function(frame, event, arg):
         exc_type, exc_value, exc_tb = arg
         print(f"EXCEPTION: {func_name}() raised {exc_type.__name__}: {exc_value}")
 
-    # For 'line', 'return', 'exception' the return value is ignored by CPython,
-    # but returning trace_function keeps things consistent if you reuse this
-    # as a local trace function too.
     return trace_function
 
 
@@ -83,6 +80,8 @@ if __name__ == '__main__':
     sys.settrace(trace_function)
     example(5)
     sys.settrace(None)  # stop tracing
+```
+
 
 It receives three parameters:
 
