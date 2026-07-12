@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
 It receives three parameters:
 
-## 1. frame
+### 1. frame
 
 The current execution frame.
 
@@ -97,7 +97,7 @@ The frame object contains useful information such as:
 * Global variables (`frame.f_globals`)
 * Source filename (`frame.f_code.co_filename`)
 
-## 2. event
+### 2. event
 
 The type of execution event that occurred.
 
@@ -110,7 +110,7 @@ Common events include:
 | `return`    | A function is returning.                |
 | `exception` | An exception has been raised.           |
 
-## 3. arg
+### 3. arg
 
 Additional information depending on the event.
 
