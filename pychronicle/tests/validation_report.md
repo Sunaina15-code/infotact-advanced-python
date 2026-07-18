@@ -2,11 +2,11 @@
 
 ## Team: Infotact Advanced Python Engineering
 ## Week: 2 (July 12–18, 2025)
-## Task: Testing & Validation
+## Task: Testing & Validation report
 
 ---
 
-## Overview
+## Overview of tester
 
 This report documents the accuracy and performance of the `OptimizedTracer`
 tested against three complex Python scripts covering loops, nested structures,
