@@ -97,13 +97,13 @@ class DBPerformanceTester:
                 event_type="assignment"
             )
 
-        # 2a — fetch all
+        # 2a — fetch all of them
         start = time.perf_counter()
         all_states = db.get_all_states()
         elapsed = time.perf_counter() - start
         self._record("SELECT all 50,000 rows", len(all_states), elapsed)
 
-        # 2b — query by line number (indexed)
+        # 2b — query by line number(indexed)
         start = time.perf_counter()
         for line in range(0, 500, 10):   # 50 queries
             db.conn.execute(
