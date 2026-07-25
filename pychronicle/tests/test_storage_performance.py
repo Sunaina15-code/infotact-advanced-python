@@ -50,7 +50,7 @@ def test_value_integrity():
     db.insert_state(5, "pi", 3.14159, "assignment")
 
     rows = db.get_all_states()
-    # value is json-dumped in StateStorage, so '3.14159' is inside the json string
+    ## value is json-dumped in StateStorage, so '3.14159' is inside the json string
     assert "3.14159" in rows[0][4], f"Value not preserved: {rows[0][4]}"
     db.close()
     print("✅ test_value_integrity passed")
@@ -114,7 +114,7 @@ def test_delta_compression_saves_records():
     raw_count = len(db_raw.get_all_states())
     db_raw.close()
 
-    # Compressed
+    ## Compressed
     db_comp = StateStorage(":memory:")
     prev = {}
     for i in range(iterations):
