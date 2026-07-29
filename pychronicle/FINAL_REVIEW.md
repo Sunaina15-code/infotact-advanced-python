@@ -73,3 +73,6 @@ Final review preparation
 
 ## July 19 Update
 All modules verified
+
+## July 20 Update
+Mid review ready - PyChronicle complete
