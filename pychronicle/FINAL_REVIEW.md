@@ -59,3 +59,5 @@ without re-running the code.
 - ast module
 
 ## PyChronicle is COMPLETE! 🎉
+## July 15 Update
+CLI testing complete
