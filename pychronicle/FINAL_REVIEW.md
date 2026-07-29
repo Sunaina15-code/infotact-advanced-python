@@ -92,3 +92,5 @@ Mid review ready - PyChronicle complete
 ## July 27 - Handover docs
 
 ## July 28 - Final submission
+
+## July 29 - Project complete
