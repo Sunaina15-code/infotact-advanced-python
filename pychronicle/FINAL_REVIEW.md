@@ -82,3 +82,5 @@ Mid review ready - PyChronicle complete
 ## July 22 - Bug fixes
 
 ## July 23 - Performance optimization
+
+## July 24 - Documentation
