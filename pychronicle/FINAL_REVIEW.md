@@ -61,3 +61,6 @@ without re-running the code.
 ## PyChronicle is COMPLETE! 🎉
 ## July 15 Update
 CLI testing complete
+
+## July 16 Update
+CLI packaging verified
