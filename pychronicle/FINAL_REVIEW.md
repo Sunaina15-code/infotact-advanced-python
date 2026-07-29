@@ -64,3 +64,6 @@ CLI testing complete
 
 ## July 16 Update
 CLI packaging verified
+
+## July 17 Update
+Documentation updated
