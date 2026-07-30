@@ -5,12 +5,15 @@ import click
 import sys
 from pychronicle.tracer.compressed_tracer import CompressedTracer
 from pychronicle.storage import StateStorage
+from cli.watch_commands import watch as watch_group
+
 
 @click.group()
 def cli():
     """PyChronicle - Time Travel Debugger"""
     pass
 
+cli.add_command(watch_group)
 @cli.command()
 @click.argument('script')
 @click.option('--db', default='pychronicle.db', help='Database path')
