@@ -94,3 +94,4 @@ if __name__ == "__main__":
     print(f"\nClosest peers to node2: {len(closest)}")
 
     print("\n=== DHT Demo Complete! ===")
+# Aug 4 update
