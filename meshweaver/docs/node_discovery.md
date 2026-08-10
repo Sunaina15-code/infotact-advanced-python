@@ -11,7 +11,7 @@
 
 ### Example Flow:
 ###
-
+New Node (ID: abc123...) ↓ Bootstrap Node (ID: def456...) ↓ FIND_NODE(abc123) ↓ Receive k closest nodes ↓ Query those nodes iteratively ↓ Build routing table with neighbors
 
 ## Active Discovery (FIND_NODE)
 
@@ -31,6 +31,10 @@
 
 ### Example:
 ###
+Target ID: 1111 My ID: 0000
+
+Step 1: Query nodes at distance ~8 (1000 range) Step 2: Query nodes at distance ~4 (0100 range) Step 3: Query nodes at distance ~2 (0010 range) Step 4: Query nodes at distance ~1 (0001 range) Converged to closest k nodes
+
 
 
 ## Passive Discovery
@@ -62,6 +66,14 @@
 ## Network Join Flow
 
 #####
+Generate Node ID ↓
+Contact Bootstrap Node ↓
+Add Bootstrap to Routing Table ↓
+FIND_NODE(own_id) ↓
+Discover Neighbors ↓
+Populate Routing Table ↓
+Announce Presence (passive via responses) ↓
+Bucket Refresh (periodic)
 
 
 ## Network Leave/Failure

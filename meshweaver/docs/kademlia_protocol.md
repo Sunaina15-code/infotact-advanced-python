@@ -8,6 +8,7 @@ Kademlia is a distributed hash table (DHT) protocol designed by Petar Maymounkov
 ### Why XOR?
 Kademlia uses XOR (exclusive OR) to calculate distance between node IDs:
 ####
+distance(A, B) = A XOR B
 
 ### Properties:
 - **Symmetric**: distance(A, B) = distance(B, A)
@@ -17,7 +18,9 @@ Kademlia uses XOR (exclusive OR) to calculate distance between node IDs:
 
 ### Example:
 ####
+Node A: 1011 (binary) = 11 (decimal) Node B: 0110 (binary) = 6 (decimal) Distance: 1011 XOR 0110 = 1101 = 13
 
+Node A: 1011 Node C: 1010 Distance: 1011 XOR 1010 = 0001 = 1 (C is closer to A than B)
 
 
 ## Node IDs
