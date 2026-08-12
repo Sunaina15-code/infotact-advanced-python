@@ -9,7 +9,7 @@ import asyncio
 import numpy as np
 from serializer.task_serializer import TaskSerializer
 from serializer.task_queue import DistributedTaskQueue
-from examples.ml_functions import (
+from serializer.ml_functions import (
     logistic_regression_train,
     k_nearest_neighbors,
     pca_transform,

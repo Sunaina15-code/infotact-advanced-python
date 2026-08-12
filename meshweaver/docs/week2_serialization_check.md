@@ -48,5 +48,5 @@ python test_ml_functions.py
 python test_network_transmission.py
 
 # Run complete demo
-cd meshweaver/examples
-python demo_week2.py
+cd meshweaver/tests
+python ml_network_transmission_demo.py
