@@ -27,6 +27,27 @@ class Task:
         self.created_at = datetime.now().isoformat()
         self.func_name = func.__name__
 
+     
+    def __lt__(self, other):
+        """Less than comparison for PriorityQueue"""
+        return self.task_id < other.task_id
+    
+    def __le__(self, other):
+        """Less than or equal comparison"""
+        return self.task_id <= other.task_id
+    
+    def __gt__(self, other):
+        """Greater than comparison"""
+        return self.task_id > other.task_id
+    
+    def __ge__(self, other):
+        """Greater than or equal comparison"""
+        return self.task_id >= other.task_id
+    
+    def __eq__(self, other):
+        """Equality comparison"""
+        return self.task_id == other.task_id
+
     def serialize(self):
         return cloudpickle.dumps({
             'task_id': self.task_id,

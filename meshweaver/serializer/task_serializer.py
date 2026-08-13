@@ -50,9 +50,13 @@ class TaskSerializer:
         """Deserialize and immediately execute"""
         func, args, kwargs = self.deserialize_task(serialized_data)
         if func:
-            result = func(*args, **kwargs)
-            print(f"✅ Task executed! Result: {result}")
-            return result
+            try:
+                result = func(*args, **kwargs)
+                print(f"✅ Task executed! Result: {result}")
+                return result
+            except Exception as e:
+                print(f"❌ Task execution error: {e}")
+                return None
         return None
 
 def demo_task(x, y):

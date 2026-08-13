@@ -87,6 +87,9 @@ def pca_transform(X: np.ndarray, n_components: int = 2) -> Dict:
     
     # Eigenvalues and eigenvectors
     eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
+
+    eigenvalues = np.real(eigenvalues)
+    eigenvectors = np.real(eigenvectors)
     
     # Sort by eigenvalues
     idx = eigenvalues.argsort()[::-1]
