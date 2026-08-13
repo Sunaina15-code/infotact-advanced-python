@@ -27,7 +27,6 @@ class Task:
         self.created_at = datetime.now().isoformat()
         self.func_name = func.__name__
 
-     
     def __lt__(self, other):
         """Less than comparison for PriorityQueue"""
         return self.task_id < other.task_id

@@ -46,6 +46,7 @@ class TaskSerializer:
             print(f"❌ Deserialization error: {e}")
             return None, None, None
 
+
     def execute_serialized(self, serialized_data):
         """Deserialize and immediately execute"""
         func, args, kwargs = self.deserialize_task(serialized_data)
